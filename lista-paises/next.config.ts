@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  images: {
+    domains: ['flagcdn.com', 'restcountries.com', 'upload.wikimedia.org'], // Adicione o domínio correto
+  },
 };
 
 export default nextConfig;
