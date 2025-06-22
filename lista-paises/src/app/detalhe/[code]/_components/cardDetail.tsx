@@ -8,8 +8,8 @@ interface CardDetailProps {
   name: { common: string };
   capital: string[];
   region: string;
-  population: string; // já formatado
-  languages: string; // já formatado
+  population: string;
+  languages: string;
 }
 
 export const CardDetail = ({
@@ -21,7 +21,7 @@ export const CardDetail = ({
   population,
 }: CardDetailProps) => {
   return (
-    <div className="w-full p-4">
+    <div className="w-full">
       <h1 className="text-center mt-8 text-3xl font-bold">{name.common}</h1>
       <Link href="/" className="text-black flex items-center gap-1">
         <ArrowLeft size={16} /> Voltar

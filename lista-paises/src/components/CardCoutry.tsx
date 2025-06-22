@@ -4,7 +4,7 @@ import Image from 'next/image';
 interface CardCountryProps {
   image: string | StaticImport;
   name: string;
-  alt: string;
+  alt?: string;
 }
 
 export const CardCountry = ({ image, name, alt }: CardCountryProps) => {
@@ -12,7 +12,7 @@ export const CardCountry = ({ image, name, alt }: CardCountryProps) => {
     <div className="w-[241px] h-[226px] bg-white rounded-xl flex flex-col items-center justify-center gap-3.5 p-4">
       <Image
         src={image}
-        alt={alt}
+        alt={alt || name}
         width={220}
         height={130}
         className="rounded-xl"

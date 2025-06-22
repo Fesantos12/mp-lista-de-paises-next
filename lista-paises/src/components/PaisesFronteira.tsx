@@ -7,7 +7,7 @@ interface DetailPageProps {
 
 type Country = {
   cca3: string;
-  flags: { png: string; svg: string; alt: string };
+  flags: { png: string; svg: string; alt?: string };
   name: { common: string };
   capital: string[];
   region: string;
@@ -31,7 +31,7 @@ export async function PaisesFronteira({ params }: DetailPageProps) {
     const neighborsData = await neighborsRes.json();
 
     return (
-      <div className="w-full grid grid-cols-2 justify-center gap-8 md:gap-10 xl:grid-cols-5">
+      <div className="w-full flex flex-wrap justify-center gap-8">
         {neighborsData.map((pais: Country) => (
           <Link href={`/detalhe/${pais.cca3}`} key={pais.cca3}>
             <CardCountry

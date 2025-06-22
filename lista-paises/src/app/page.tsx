@@ -20,8 +20,8 @@ export default async function Home() {
   const data: Country[] = await response.json();
 
   return (
-    <div className="w-full px-10 md:px-52 mt-16">
-      <div className="w-full grid grid-cols-2 justify-center gap-8 md:gap-10 xl:grid-cols-5">
+    <div className="w-full px-52 mt-16">
+      <div className="w-full flex flex-wrap justify-center gap-8">
         {data.map((pais) => (
           <Link href={`/detalhe/${pais.cca3}`} key={pais.cca3}>
             <CardCountry
