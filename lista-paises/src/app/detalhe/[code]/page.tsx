@@ -1,3 +1,4 @@
+import { PaisesFronteira } from '@/components/PaisesFronteira';
 import { CardDetail } from './_components/cardDetail';
 
 interface DetailPageProps {
@@ -15,6 +16,7 @@ type Country = {
 };
 
 export default async function DetailCountry({ params }: DetailPageProps) {
+  'use server';
   const { code } = params;
 
   const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
@@ -34,7 +36,7 @@ export default async function DetailCountry({ params }: DetailPageProps) {
   }
 
   return (
-    <div className="w-full px-52">
+    <div className="w-full px-52 flex flex-col items-center gap-12 mt-14">
       <CardDetail
         capital={country.capital}
         region={country.region}
@@ -44,6 +46,7 @@ export default async function DetailCountry({ params }: DetailPageProps) {
         flags={country.flags}
         cca3={country.cca3}
       />
+      <PaisesFronteira params={params} key={code} />
     </div>
   );
 }
