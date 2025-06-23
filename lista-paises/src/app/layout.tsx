@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: 'Lista de Paises',
   description:
     'Lista de todos os paises do mundo com bandeira nome e mais conteúdeos',
+  openGraph: {
+    title: 'lista de Paises',
+    description: 'Site que lista países com detalhes feito por Fellipe Santos',
+  },
 };
 
 export default function RootLayout({
