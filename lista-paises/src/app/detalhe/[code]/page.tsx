@@ -12,7 +12,7 @@ type Country = {
   capital: string[];
   region: string;
   population: string;
-  languages: string;
+  languages: { [key: string]: string };
 };
 
 export default async function DetailCountry({ params }: DetailPageProps) {
@@ -36,11 +36,11 @@ export default async function DetailCountry({ params }: DetailPageProps) {
   }
 
   return (
-    <div className="w-full px-52 flex flex-col items-center gap-12 mt-14">
+    <div className="w-full px-52 flex flex-col items-center gap-28 mt-14">
       <CardDetail
         capital={country.capital}
         region={country.region}
-        languages={Object.values(country.languages).join(', ')}
+        languages={country.languages}
         population={abreviarNumero(country.population)}
         name={country.name}
         flags={country.flags}

@@ -9,7 +9,7 @@ interface CardDetailProps {
   capital: string[];
   region: string;
   population: string;
-  languages: string;
+  languages: { [key: string]: string };
 }
 
 export const CardDetail = ({
@@ -26,16 +26,23 @@ export const CardDetail = ({
       <Link href="/" className="text-black flex items-center gap-1">
         <ArrowLeft size={16} /> Voltar
       </Link>
-      <div className="w-full rounded-2xl mt-4 flex items-center justify-around gap-2 bg-white p-8">
+      <div className="w-full rounded-2xl mt-4 flex flex-col-reverse items-center justify-around gap-6 xl:flex-row md:gap-2 bg-white p-8">
         <ul className="space-y-1">
           <li>🏙️ Capital: {capital.join(', ')}</li>
           <li>🗺️ Continente: {region}</li>
           <li>👨‍👩‍👧‍👦 População: {population}</li>
           <li className="flex flex-col gap-2">
-            🗣️ Línguas faladas:{' '}
-            <p className="bg-blue-700 rounded-xl w-16 p-1 text-center text-white text-[12px] font-normal">
-              {languages}
-            </p>
+            🗣️ Línguas faladas:
+            <div className="flex gap-2">
+              {Object.values(languages).map((lang, index) => (
+                <p
+                  key={index}
+                  className="bg-blue-700 rounded-xl w-16 p-1 text-center text-white text-[12px] font-normal"
+                >
+                  {lang}
+                </p>
+              ))}
+            </div>
           </li>
         </ul>
         <Image
